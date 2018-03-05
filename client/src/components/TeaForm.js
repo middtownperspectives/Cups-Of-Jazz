@@ -1,47 +1,56 @@
 import React, { Component, Fragment } from 'react';
 import { Input, Row, Button } from 'react-materialize';
-import Header from './Header';
+import EditForm from './EditForm';
 
 class TeaForm extends Component {
-  // nameRef = React.createRef();
-  // imageRef = React.createRef();
-  // descriptonRef = React.createRef();
-  // benefitRef = React.createRef();
-  // instructionsRef = React.createRef();
 
   createTea = (event) => {
     event.preventDefault();
     console.log('attempt to create tea on form submit');
+
+    //console.log(this.name, this.image, this.desc, this.type, this.instructions);
+
+    const tea = {
+      name: this.name.input.defaultValue,
+      image: this.image.input.defaultValue,
+      desc: this.desc.input.defaultValue,
+      type: this.type._id,
+      instructions: this.instructions.input.defaultValue,
+    };
+    console.log(tea);
+    this.props.addTea(tea);
+    event.currentTarget.reset();
   };
 
   render() {
     return (
       <Fragment>
-      <Header />
+      {/* <Header /> */}
       <div className='container'>
+        <h2> Create A New Tea </h2>
       <Row>
         <form onSubmit={this.createTea}>
         <Input s={6}
           name='name'
-          ref={this.nameRef}
+          ref={input => (this.name = input)}
           label='Name'
           type='text'
         />
         <Input s={6}
           name='image'
-          ref={this.imageRef}
+          ref={input => (this.image = input)}
           label='Image'
           type='text'
         />
         <Input s={12}
-          name='descripton'
-          ref={this.descriptonRef}
+          name='desc'
+          ref={input => (this.desc = input)}
           type='textarea'
           label='Description'
         />
         <Input s={12}
-          name='benefit'
-          ref={this.benefitRef}
+          name='type'
+          ref={input => (this.type = input)}
           type='select'
           label='Tea Benefit'>
                 <option value='focus'> Focus </option>
@@ -51,13 +60,14 @@ class TeaForm extends Component {
         </Input>
         <Input s={12}
           name='instructions'
-          ref={this.instructionsRef}
+          ref={input => (this.instructions = input)}
           type='textarea'
           label='Instructions'
         />
         <Button type='submit' waves='light'> Submit </Button>
         </form>
       </Row>
+      <EditForm />
       </div>
     </Fragment>
 

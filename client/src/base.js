@@ -18,3 +18,10 @@ export { firebaseApp };
 
 //this is a defaust export
 export default base;
+
+// {
+//   "rules": {
+//     ".read": "auth != null",
+//     ".write": "auth != null"
+//   }
+// }
