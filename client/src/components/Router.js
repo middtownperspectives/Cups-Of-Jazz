@@ -7,7 +7,6 @@ import TeaForm from './TeaForm';
 import Teas from './Teas';
 import WrongPage from './WrongPage';
 import About from './About';
-import TeaMaster from './TeaMaster';
 
 // import App from './App';
 // import NotFound from './NotFound';
@@ -21,7 +20,6 @@ const Router = () => (
       <Route exact path='/about' component={ About } />
       <Route exact path='/teas' component={ App } />
       <Route exact path='/createtea' component={ TeaForm } />
-      <Route exact path='/tea_masterlist' component={ TeaMaster } />
       <Route component={ WrongPage } />
     </Switch>
   </BrowserRouter>

@@ -21,6 +21,18 @@ class App extends Component {
     this.setState({ teas });
   };
 
+  updateTea = (key, updatedTea) => {
+    const teas = { ...this.state.teas };
+    teas[key] = updatedTea;
+    this.setState({ teas });
+  };
+
+  deleteTea = (key) => {
+    const teas = { ...this.state.teas };
+    teas[key] = null;
+    this.setState({ teas });
+  };
+
   componentDidMount() {
     console.log('component did mount');
     this.ref = base.syncState('teas', {
@@ -40,12 +52,14 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-      <Header tea={this.state.teas}/>
+      <Header />
         <div className='container'>
           <h1> Teas </h1>
             <div className="section">
               {Object.keys(this.state.teas)
-                .map(key => <Teas key={key} details={this.state.teas[key]} />)}
+                .map(key => <Teas teas={this.state.teas} key={key}
+                  tea={this.state.teas[key]} updateTea={this.updateTea}
+                  index={key} deleteTea={this.deleteTea} />)}
                 <div className="divider"></div>
             </div>
         </div>

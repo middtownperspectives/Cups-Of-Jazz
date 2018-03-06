@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Input, Row, Button } from 'react-materialize';
-import EditForm from './EditForm';
+
+// import EditForm from './EditForm';
 
 class TeaForm extends Component {
 
@@ -67,7 +68,6 @@ class TeaForm extends Component {
         <Button type='submit' waves='light'> Submit </Button>
         </form>
       </Row>
-      <EditForm />
       </div>
     </Fragment>
 

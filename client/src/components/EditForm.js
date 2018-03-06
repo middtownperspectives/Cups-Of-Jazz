@@ -4,7 +4,7 @@ class EditForm extends Component {
 
   render() {
     return (
-      <h3> Edit Form </h3>
+      <h3> Edit Tea Form </h3>
     );
   }
 };
