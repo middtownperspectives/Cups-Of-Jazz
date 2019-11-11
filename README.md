@@ -1,1 +1,1 @@
-# [Cups-Of-Jazz](https://client-ehwzuminwc.now.sh)
+# Cups-Of-Jazz
